@@ -42,7 +42,7 @@ Pytorch: 2.0.0+cu118
 # Pipeline
 1. Download data from the [official link](https://aistudio.baidu.com/aistudio/datasetdetail/203278)
 
-2. Run **data_analyzing.ipynb** to explore the dataset and do caption->label mapping, statistic, etc.
+2. Run **data_analyzing.ipynb** to explore the dataset and do caption->label mapping, dataset merging, etc.
 
 3. Run **Data_preparing.ipynb** to split dataset with stratified Kfold for local validation.
 
