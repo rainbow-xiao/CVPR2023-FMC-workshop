@@ -1,5 +1,5 @@
 # [CVPR 2023 1st foundation model challenge-Track2](https://aistudio.baidu.com/aistudio/competition/detail/891/0/introduction)
-# Leaderboard A: 3rd Place Solution
+### Leaderboard A: 3rd Place Solution
 
 ---
 # HARDWARE & SOFTWARE
@@ -14,6 +14,7 @@ Python: 3.9.13
 
 Pytorch: 2.0.0+cu118
 
+---
 # Arch
 ```
 |-- CVPR/
@@ -37,7 +38,7 @@ Pytorch: 2.0.0+cu118
 |      |-- val_label.txt
 |-- ...
 ```
-
+---
 # Pipeline
 1. Download data from the [official link](https://aistudio.baidu.com/aistudio/datasetdetail/203278)
 
@@ -66,6 +67,7 @@ Pytorch: 2.0.0+cu118
  
 3. ConvNext-XXLarge-soup from [open_clip_torch](https://github.com/mlfoundations/open_clip)
 
+---
 # Training
 1. Car Classification Training:
 ```bash
@@ -83,7 +85,7 @@ CVPR/train_car_cl.py \
 --warmup_epochs 0 \
 --fold 1
 ```
----
+
 2. Pedestrian Classification Training:
 ```bash
 !CUDA_VISIBEL_DEVICES=0 \
@@ -100,7 +102,7 @@ CVPR/train_people_cl.py \
 --warmup_epochs 1 \
 --fold 1
 ```
----
+
 3. Pedestrian-Car Classification Training:
 ```bash
 !CUDA_VISIBEL_DEVICES=0 \
@@ -117,7 +119,7 @@ CVPR/train_people_car_cl.py \
 --warmup_epochs 0 \
 --fold 1
 ```
-
+---
 # Inference
 1. Pedestrian Classification Inference(Emsenble):
 ```bash
@@ -132,7 +134,7 @@ CVPR/train_people_car_cl.py \
 --batch-size 32 \
 --num-workers 8 \
 ```
----
+
 2. Pedestrian Classification Inference(Emsenble):
 ```bash
 !python CVPR/inference_people_cl_emsenble.py \
@@ -170,7 +172,7 @@ CVPR/train_people_car_cl.py \
 --num-workers 8 \
 --nbatch_log 300 \
 ```
----
+
 3. Pedestrian-Car General Classification Inference:
 ```bash
 !python CVPR/inference_people_car_cl.py \
