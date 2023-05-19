@@ -1,0 +1,11 @@
+pandas
+jsonlines
+einops
+yacs
+fairscale
+termcolor
+albumentations
+--pre timm
+open_clip_torch
+xformers
+nltk
