@@ -1,15 +1,8 @@
 # CVPR 2023 1st foundation model challenge-Track2
 # Leaderboard A: 3rd Place Solution
 
-#### [Competition on kaggle](https://aistudio.baidu.com/aistudio/competition/detail/891/0/introduction)
-#### [ECCV 2022 Instance-Level Recognition workshop](https://ilr-workshop.github.io/ECCVW2022/)
+#### [Competition](https://aistudio.baidu.com/aistudio/competition/detail/891/0/introduction)
 
-## Code arch
-|   
-|
-|
-|
-|
 ## HARDWARE & SOFTWARE
 
 Ubuntu 22.04
@@ -22,15 +15,36 @@ Python: 3.9.13
 
 Pytorch: 2.0.0+cu118
 
+## Arch
+```
+|-- CVPR/
+|   |-- models
+|      |-- ...
+|   |-- utils
+|      |-- ...
+|   |-- ...
+|-- data/
+|   |-- train
+|      |-- train_images
+|         |-- ...
+|      |-- train_label.txt
+|   |-- test
+|      |-- test_images
+|         |-- ...
+|      |-- test_label.txt
+|   |-- val
+|      |-- val_images
+|         |-- ...
+|      |-- val_label.txt
+|-- ...
+```
+
 ## Data Preparation
 1. Download data from the [official link](https://aistudio.baidu.com/aistudio/datasetdetail/203278)
 
 2. Run **data_analyzing.ipynb** to explore the dataset and do caption->label mapping, dataset merging, etc.
 
 3. Run **Data_preparing.ipynb** to split dataset with stratified Kfold for local validation.
-
-4. Run **Data_Merge.ipynb** to merge all the csvs, and do sampling and resamping. Will get **final_data_224_sample_balance.csv**. 
-
 
 ## Pretrained Models
 1. EVA02_CLIP_L_336_psz14_s6B(visual) and EVA02_CLIP_L_psz14_s4B(visual) from [EVA](https://github.com/baaivision/EVA)
@@ -40,21 +54,20 @@ Pytorch: 2.0.0+cu118
 3. ConvNext-XXLarge-soup from [open_clip_torch](https://github.com/mlfoundations/open_clip)
 
 ## Training
-2. Training:
+1. Car Classification Training:
 ```bash
-!CUDA_VISIBLE_DEVICES=0,1,2,3,4,5 \
-python -m torch.distributed.launch --nproc_per_node=6 \
-./GUIE/train.py \
---csv-dir ./final_data_224_sample_balance_fold.csv \
---config-name 'vit_224' \
---image-size 224 \
+!CUDA_VISIBEL_DEVICES=0 \
+python -m torch.distributed.launch --nproc_per_node=1 \
+CVPR/train_car_cl.py \
+--csv-dir data/train_val_cars_type**{task}**_10fold.csv \                     task in [type, color, brand]
+--config-name 'config_eva_vit_car_cl' \
+--image-size 224**{size}** \                                                  size in [224, 336]
+--epochs 10 \
+--init-lr 3e-5 \
 --batch-size 32 \
---num-workers 10 \
---init-lr 1e-4 \
---n-epochs 10 \
---cpkt_epoch 10 \
---n_batch_log 300 \
---warm_up_epochs 1 \
+--num-workers 8 \
+--nbatch_log 300 \
+--warmup_epochs 0 \
 --fold 1
 ```
 
