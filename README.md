@@ -1,7 +1,6 @@
-### CVPR 2023 1st foundation model challenge-Track2
-### Leaderboard A: 3rd Place Solution
+# [CVPR 2023 1st foundation model challenge-Track2](https://aistudio.baidu.com/aistudio/competition/detail/891/0/introduction)
+# Leaderboard A: 3rd Place Solution
 
-# [Competition](https://aistudio.baidu.com/aistudio/competition/detail/891/0/introduction)
 
 # HARDWARE & SOFTWARE
 
