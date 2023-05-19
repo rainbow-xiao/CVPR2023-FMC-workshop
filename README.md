@@ -46,17 +46,17 @@ Pytorch: 2.0.0+cu118
 
 3. Run **Data_preparing.ipynb** to split dataset with stratified Kfold for local validation.
 
-4. Train 3 models for 3 sub-cl-task of car.
+4. Train 3 models for 3 sub-cl-tasks of car.
 
-5. Train 12 models for 12 sub-cl-task of pedestrian.
+5. Train 12 models for 12 sub-cl-tasks of pedestrian.
 
-6. Train 1 Pedestrian-Car general classification Model.
+6. Train a Pedestrian-Car general classification Model.
 
-7. Split pedestrian and car with model trained in step 6.
+7. Split pedestrian and car of test data with model trained in step 6.
 
-8. Inference of sub-cl-task of car with models trained in step 4, and retrival top10 imgs.
+8. Inference of sub-cl-tasks of car with models trained in step 4, and retrival top10 imgs.
 
-9. Inference of sub-cl-task of people with models trained in step 5, and retrival top10 imgs.
+9. Inference of sub-cl-tasks of people with models trained in step 5, and retrival top10 imgs.
 
 10. Merge results from step 8 and step 9 to make **submission.json**.
 
