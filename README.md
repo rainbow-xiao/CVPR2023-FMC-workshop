@@ -73,9 +73,9 @@ Pytorch: 2.0.0+cu118
 !CUDA_VISIBEL_DEVICES=0 \
 python -m torch.distributed.launch --nproc_per_node=1 \
 CVPR/train_car_cl.py \
---csv-dir data/train_val_cars_type*{task}*_10fold.csv \             task in [type, color, brand]
---config-name 'config_eva_vit_car_cl'*{cfg}* \                      cfg in [config_eva_vit_car_cl, config_eva_02_car_cl, config_conv_car_cl]
---image-size 224*{size}* \                                          size in [224(eva-l), 280(conv), 336(eva-l-336), 448(eva02-448)]
+--csv-dir data/train_val_cars_*{task}*_10fold.csv \             task in [type, color, brand]
+--config-name *{cfg}* \                      cfg in [config_eva_vit_car_cl, config_eva_02_car_cl, config_conv_car_cl]
+--image-size *{size}* \                                          size in [224 (eva-l), 280 (conv), 336 (eva-l-336), 448 (eva02-448)]
 --epochs 10 \
 --init-lr 3e-5 \
 --batch-size 32 \
@@ -90,9 +90,9 @@ CVPR/train_car_cl.py \
 !CUDA_VISIBEL_DEVICES=0 \
 python -m torch.distributed.launch --nproc_per_node=1 \
 CVPR/train_people_cl.py \
---csv-dir data/train_val_peoples_code_fold_0*{task}*.csv \          task in [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
---config-name 'config_eva_vit_people_cl'*{cfg}* \                   cfg in [config_eva_vit_car_cl, config_eva_02_car_cl, config_conv_car_cl]
---image-size 224*{size}* \                                          size in [224(eva-l), 280(conv), 336(eva-l-336), 448(eva02-448)]
+--csv-dir data/train_val_peoples_code_fold_*{task}*.csv \          task in [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+--config-name *{cfg}* \                   cfg in [config_eva_vit_car_cl, config_eva_02_car_cl, config_conv_car_cl]
+--image-size *{size}* \                                          size in [224 (eva-l), 280 (conv), 336 (eva-l-336), 448 (eva02-448)]
 --epochs 16 \
 --init-lr 3e-5 \
 --batch-size 32 \
