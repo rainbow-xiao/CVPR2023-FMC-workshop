@@ -121,7 +121,7 @@ CVPR/train_people_car_cl.py \
 ```
 ---
 # Inference
-1. Pedestrian Classification Inference(Emsenble):
+1. Car Classification Inference(Emsenble):
 ```bash
 !python CVPR/inference_car_emsenble.py \
 --csv-dir data/test/test_car.csv \
