@@ -18,24 +18,28 @@ Pytorch: 2.0.0+cu118
 # Arch
 ```
 |-- CVPR/
-|   |-- models
+|   |-- models/
 |      |-- ...
-|   |-- utils
+|   |-- utils/
 |      |-- ...
 |   |-- ...
 |-- data/
-|   |-- train
-|      |-- train_images
+|   |-- car_text/
+|      |-- ...
+|   |-- train/
+|      |-- train_images/
 |         |-- ...
 |      |-- train_label.txt
-|   |-- test
-|      |-- test_images
+|   |-- test/
+|      |-- test_images/
 |         |-- ...
 |      |-- test_label.txt
-|   |-- val
-|      |-- val_images
+|   |-- val/
+|      |-- val_images/
 |         |-- ...
 |      |-- val_label.txt
+|-- pretrained_weights/
+|   |-- ...
 |-- ...
 ```
 ---
